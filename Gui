@@ -1,0 +1,34 @@
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+
+
+
+
+
+public class Gui  extends JFrame
+{
+	 private JList list;
+	 private JLabel picture;
+	public Gui()
+	{
+		   JScrollPane listScrollPane = new JScrollPane(list);
+		   JScrollPane pictureScrollPane = new JScrollPane(picture);
+		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,listScrollPane, pictureScrollPane);
+		splitPane.setOneTouchExpandable(true);
+		splitPane.setDividerLocation(150);
+
+		//Provide minimum sizes for the two components in the split pane
+		Dimension minimumSize = new Dimension(100, 50);
+		listScrollPane.setMinimumSize(minimumSize);
+		pictureScrollPane.setMinimumSize(minimumSize);
+	}
+    public JSplitPane getSplitPane() {
+        return splitPane;
+    }
+
+}
